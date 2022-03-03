@@ -10,4 +10,5 @@ steps:
   - name: composer install
     commands:
       - composer install
+      - pwd
 
