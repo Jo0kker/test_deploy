@@ -11,7 +11,8 @@ steps:
     commands:
       - composer install
       - pwd
+      - ls -l
   - name: move project
     commands:
       - echo 'move to ' + $DRONE_COMMIT
-      - echo $DRONE_COMMIT
+      - echo $DRONE_RUNNER_ENVFILE
