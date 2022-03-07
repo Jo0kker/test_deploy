@@ -13,4 +13,5 @@ steps:
       - pwd
   - name: move project
     commands:
-      - echo 'move to $DRONE_COMMIT'
+      - echo 'move to ' + $DRONE_COMMIT
+      - echo $DRONE_COMMIT
