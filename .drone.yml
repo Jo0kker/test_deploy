@@ -16,7 +16,7 @@ steps:
       - git clone $DRONE_REPO_LINK /var/www/deployer/tmp/$DRONE_STAGE_STARTED
   - name: composer install
     commands:
-      - cd /var/www/deployer/$DRONE_STAGE_STARTED
+      - cd /var/www/deployer/tmp/$DRONE_STAGE_STARTED
       - composer install
       - pwd
       - ls -la
@@ -24,6 +24,6 @@ steps:
     commands:
       - mv /var/www/tmp/$DRONE_REPO_NAME /var/www/
       - ln -sf /var/www/deployer/$DRONE_STAGE_STARTED /var/www/$DRONE_REPO_NAME
-    when: 
+    when:
       status:
         - success
