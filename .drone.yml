@@ -13,17 +13,17 @@ clone:
 steps:
   - name: clone
     commands:
-      - git clone $DRONE_REPO_LINK /var/www/deployer/tmp/$DRONE_STAGE_STARTED
+      - git clone $DRONE_REPO_LINK /var/www/deployer/tmp/$DRONE_REPO_NAME_$DRONE_STAGE_STARTED
   - name: composer install
     commands:
-      - cd /var/www/deployer/tmp/$DRONE_STAGE_STARTED
+      - cd /var/www/deployer/tmp/$DRONE_REPO_NAME_$DRONE_STAGE_STARTED
       - composer install
       - pwd
       - ls -la
   - name: move project
     commands:
-      - mv /var/www/deployer/tmp/$DRONE_STAGE_STARTED /var/www/deployer/
-      - ln -sf /var/www/deployer/$DRONE_STAGE_STARTED /var/www/$DRONE_REPO_NAME
+      - mv /var/www/deployer/tmp/$DRONE_REPO_NAME_$DRONE_STAGE_STARTED /var/www/deployer/
+      - ln -sf /var/www/deployer/$DRONE_REPO_NAME_$DRONE_STAGE_STARTED /var/www/$DRONE_REPO_NAME
     when:
       status:
         - success
