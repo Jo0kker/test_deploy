@@ -6,10 +6,17 @@ platform:
   os: linux
   arch: amd64
 
+clone:
+  disable: true
+
+
 steps:
+  - name: clone
+    commands:
+      - git clone $DRONE_REPO_LINK /var/www/deployer/$DRONE_REPO_NAME
   - name: composer install
     commands:
-      - composer install
+#      - composer install
       - pwd
       - ls -la
   - name: move project
