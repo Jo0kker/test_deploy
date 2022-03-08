@@ -22,7 +22,7 @@ steps:
       - ls -la
   - name: move project
     commands:
-      - mv /var/www/tmp/$DRONE_REPO_NAME /var/www/
+      - mv /var/www/tmp/$DRONE_STAGE_STARTED /var/www/
       - ln -sf /var/www/deployer/$DRONE_STAGE_STARTED /var/www/$DRONE_REPO_NAME
     when:
       status:
