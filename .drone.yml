@@ -17,4 +17,4 @@ steps:
       - echo 'move to ' $DRONE_REPO_NAME
       - rm -fr /var/www/$DRONE_REPO_NAME
       - mkdir /var/www/$DRONE_REPO_NAME
-      - mv ./* /var/www/$DRONE_REPO_NAME
+      - mv -f ./* /var/www/$DRONE_REPO_NAME
